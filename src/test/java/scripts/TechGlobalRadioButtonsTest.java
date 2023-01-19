@@ -64,5 +64,27 @@ public class TechGlobalRadioButtonsTest extends TechGlobalBase {
     @Test(priority = 2, description = "Validating TechGlobal Tools Radio Buttons")
     public void toolsRadioButtons(){
 
+        techGlobalFrontendTestingHomePage.getFrontendTestingPage();
+        techGlobalFrontendTestingHomePage.clickOnCard(5);
+
+        for (int i = 0; i < techGlobalRadioButtonsPage.radioButtonsLabel2.size(); i++) {
+            Assert.assertTrue(techGlobalRadioButtonsPage.radioButtonsLabel2.get(i).isDisplayed());
+            Assert.assertFalse(techGlobalRadioButtonsPage.radioButtonsInput2.get(i).isSelected());
+            Assert.assertTrue(techGlobalRadioButtonsPage.radioButtonsLabel2.get(i).isEnabled());
+        }
+
+        techGlobalRadioButtonsPage.radioButtonsLabel2.get(1).click();
+        Assert.assertTrue(techGlobalRadioButtonsPage.radioButtonsInput2.get(1).isSelected());
+
+        Assert.assertFalse(techGlobalRadioButtonsPage.radioButtonsInput2.get(0).isSelected());
+        Assert.assertFalse(techGlobalRadioButtonsPage.radioButtonsInput2.get(2).isSelected());
+
+        techGlobalRadioButtonsPage.radioButtonsLabel2.get(2).click();
+        Assert.assertTrue(techGlobalRadioButtonsPage.radioButtonsInput2.get(2).isSelected());
+
+        Assert.assertFalse(techGlobalRadioButtonsPage.radioButtonsInput2.get(0).isSelected());
+        Assert.assertFalse(techGlobalRadioButtonsPage.radioButtonsInput2.get(1).isSelected());
+
+
     }
 }
