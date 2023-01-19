@@ -60,11 +60,28 @@ public class TechGlobalCheckBoxTest extends TechGlobalBase{
      * Click on the "Checkboxes" card
      * Validate "Tesla" and "SpaceX" checkboxes are displayed, enabled and not selected
      * Select both and validate they are both selected
-     * Deselect bpth and validate they are deselected (edited)
+     * Deselect both and validate they are deselected
      */
 
     @Test(priority = 2, description = "Validate checkboxes of second group")
     public void validateCheckboxes2(){
+        techGlobalFrontendTestingHomePage.getFrontendTestingPage();
+        techGlobalFrontendTestingHomePage.clickOnCard(6);
 
+        techGlobalCheckBoxPage.checkboxInput2.forEach(cb ->{
+            Assert.assertTrue(cb.isDisplayed());
+            Assert.assertTrue(cb.isEnabled());
+            Assert.assertFalse(cb.isSelected());
+        });
+
+        for (int i = 0; i < techGlobalCheckBoxPage.checkboxInput2.size(); i++) {
+            techGlobalCheckBoxPage.checkboxLabel2.get(i).click();
+            Assert.assertTrue(techGlobalCheckBoxPage.checkboxInput2.get(i).isSelected());
+        }
+
+        for (int i = 0; i < techGlobalCheckBoxPage.checkboxInput2.size(); i++) {
+            techGlobalCheckBoxPage.checkboxLabel2.get(i).click();
+            Assert.assertFalse(techGlobalCheckBoxPage.checkboxInput2.get(i).isSelected());
+        }
     }
 }
