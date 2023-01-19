@@ -19,6 +19,7 @@ public class TechGlobalRadioButtonsTest extends TechGlobalBase {
      * Select "JavaScript" validate it is selected but the other 2 are deselected
      */
 
+
     @BeforeMethod
     public void setPage(){
         techGlobalFrontendTestingHomePage = new TechGlobalFrontendTestingHomePage();
@@ -47,6 +48,21 @@ public class TechGlobalRadioButtonsTest extends TechGlobalBase {
         Assert.assertTrue(techGlobalRadioButtonsPage.radioButtonsInput.get(1).isSelected());
         Assert.assertFalse(techGlobalRadioButtonsPage.radioButtonsInput.get(0).isSelected());
         Assert.assertFalse(techGlobalRadioButtonsPage.radioButtonsInput.get(2).isSelected());
+
+    }
+
+    /**
+     * Go to https://techglobal-training.netlify.app/
+     * Click on "Practices" dropdown in the header
+     * Select the "Frontend Testing" option
+     * Click on the "Radio Buttons" card
+     * Validate "Selenium", "Cypress" and "Playwright" radio buttons are displayed, enabled and not selected
+     * Select "Cypress" and validate it is selected but the other 2 are deselected
+     * Select "Playwright" validate it is selected but the other 2 are deselected
+     */
+
+    @Test(priority = 2, description = "Validating TechGlobal Tools Radio Buttons")
+    public void toolsRadioButtons(){
 
     }
 }
