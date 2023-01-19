@@ -7,6 +7,9 @@ import pages.TechGlobalCheckBoxPage;
 import pages.TechGlobalFrontendTestingHomePage;
 import utilities.Waiter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TechGlobalCheckBoxTest extends TechGlobalBase{
 
     /**
@@ -32,22 +35,36 @@ public class TechGlobalCheckBoxTest extends TechGlobalBase{
         techGlobalFrontendTestingHomePage.getFrontendTestingPage();
         techGlobalFrontendTestingHomePage.clickOnCard(6);
 
-        for (int i = 0; i < techGlobalCheckBoxPage.checkboxInput.size(); i++) {
-            Assert.assertTrue(techGlobalCheckBoxPage.checkboxInput.get(i).isDisplayed());
-            Assert.assertFalse(techGlobalCheckBoxPage.checkboxInput.get(i).isSelected());
-            Assert.assertTrue(techGlobalCheckBoxPage.checkboxInput.get(i).isEnabled());
-        }
+        techGlobalCheckBoxPage.checkboxInput.forEach(cb -> {
+            Assert.assertTrue(cb.isDisplayed());
+            Assert.assertFalse(cb.isSelected());
+            Assert.assertTrue(cb.isEnabled());
+        });
+
 
         for (int i = 0; i < techGlobalCheckBoxPage.checkboxInput.size(); i++) {
             techGlobalCheckBoxPage.checkboxLabel.get(i).click();
-            Waiter.pause(1);
             Assert.assertTrue(techGlobalCheckBoxPage.checkboxInput.get(i).isSelected());
         }
 
         for (int i = 0; i < techGlobalCheckBoxPage.checkboxInput.size(); i++) {
             techGlobalCheckBoxPage.checkboxLabel.get(i).click();
-            Waiter.pause(1);
             Assert.assertFalse(techGlobalCheckBoxPage.checkboxInput.get(i).isSelected());
         }
+    }
+
+    /**
+     * Go to https://techglobal-training.netlify.app/
+     * Click on "Practices" dropdown in the header
+     * Select the "Frontend Testing" option
+     * Click on the "Checkboxes" card
+     * Validate "Tesla" and "SpaceX" checkboxes are displayed, enabled and not selected
+     * Select both and validate they are both selected
+     * Deselect bpth and validate they are deselected (edited)
+     */
+
+    @Test(priority = 2, description = "Validate checkboxes of second group")
+    public void validateCheckboxes2(){
+
     }
 }
