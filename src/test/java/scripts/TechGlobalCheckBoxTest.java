@@ -5,10 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.TechGlobalCheckBoxPage;
 import pages.TechGlobalFrontendTestingHomePage;
-import utilities.Waiter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class TechGlobalCheckBoxTest extends TechGlobalBase{
 
