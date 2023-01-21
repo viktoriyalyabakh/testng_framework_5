@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: TestSuite
+Test set: scripts.TechGlobalCheckBoxTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 87.957 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.099 sec

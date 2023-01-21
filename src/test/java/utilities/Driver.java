@@ -17,7 +17,7 @@ public class Driver {
     public static WebDriver getDriver(){
         if(driver == null){
             //This info should come from a global file where we put such important information
-            String browser = "chrome";
+            String browser = ConfigReader.getProperty("browser");
 
             switch (browser.toLowerCase()){
                 case "chrome":
@@ -37,7 +37,7 @@ public class Driver {
             }
 
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(Long.parseLong(ConfigReader.getProperty("implicitWait")), TimeUnit.SECONDS);
         }
         return driver;
     }
