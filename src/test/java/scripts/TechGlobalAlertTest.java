@@ -99,7 +99,6 @@ public class TechGlobalAlertTest extends TechGlobalBase{
     public void validatePromptAlert() {
         techGlobalAlertsPage.clickOnAlert("Prompt alert");
         Assert.assertEquals(AlertHandler.getAlertText(driver), "What would you like to say to TechGlobal?");
-
         AlertHandler.dismissAlert();
         Assert.assertEquals(techGlobalAlertsPage.result.getText(), "You rejected the alert by clicking Cancel.");
 
